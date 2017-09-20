@@ -1,4 +1,3 @@
-// mongoimport --db shop --collection products --jsonArray --file a.json
 [
     {
         "name": "Quisque at placerat leo",
