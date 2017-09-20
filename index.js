@@ -18,5 +18,5 @@ app.use(express.static('public'));
 
 app.get('/', (req, res) => {
     Product.find({})
-    .then(results => res.send(results));
+    .then(products => res.render('index', { products }));
 });
