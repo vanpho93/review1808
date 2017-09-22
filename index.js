@@ -25,6 +25,8 @@ app.get('/', (req, res) => {
 
 app.get('/add', (req, res) => res.render('add'));
 
+app.get('/admin', (req, res) => res.render('admin'));
+
 app.post('/add', upload.single('image'), (req, res) => {
     const { name, video, desc } = req.body;
     const image = req.file ? req.file.filename : 'default.jpg';
