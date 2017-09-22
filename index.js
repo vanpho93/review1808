@@ -6,13 +6,12 @@ const Product = require('./Product');
 const upload = require('./uploadConfig');
 
 mongoose.Promise = global.Promise;
-const uri = 'mongodb://localhost/shop';
+const uri = 'mongodb://pho:123@ds147304.mlab.com:47304/shop';
 
 mongoose.connect(uri, { useMongoClient: true });
 mongoose.connection.once('open', () => {
     app.listen(3000, () => console.log('Server started!'));
 });
-
 
 const app = express();
 app.set('view engine', 'ejs');
@@ -65,7 +64,6 @@ app.post('/update/:id', upload.single('image'), (req, res) => {
         });
     })
 });
-
 
 app.post('/add', upload.single('image'), (req, res) => {
     const { name, video, desc } = req.body;
