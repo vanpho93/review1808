@@ -20,12 +20,15 @@ app.use(express.static('public'));
 
 app.get('/', (req, res) => {
     Product.find({})
-    .then(products => res.render('index', { products }));
+    .then(products => res.render('admin', { products }));
 });
 
 app.get('/add', (req, res) => res.render('add'));
 
-app.get('/admin', (req, res) => res.render('admin'));
+app.get('/admin', (req, res) => {
+    Product.find({})
+    .then(products => res.render('admin', { products }));
+});
 
 app.post('/add', upload.single('image'), (req, res) => {
     const { name, video, desc } = req.body;

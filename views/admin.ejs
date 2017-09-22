@@ -22,27 +22,19 @@
                 <td>Video</td>
                 <td>Edit</td>
             </tr>
-            <tr>
+            <% products.forEach(e => { %>
+                <tr>
+                    <td><%= e._id %></td>
+                    <td><%= e.name %></td>
+                    <td><%= e.image %></td>
+                    <td><%= e.desc %></td>
+                    <td><%= e.video %></td>
                     <td>
-                        No.
-                    </td>
-                    <td>
-                        Name
-                    </td>
-                    <td>
-                        Image
-                    </td>
-                    <td>
-                        Desc
-                    </td>
-                    <td>
-                        Video
-                    </td>
-                    <td>
-                        <a href="/xoa">Xoa</a>
-                        <a href="/sua">Sua</a>
+                        <a href="/xoa/<%= e._id %>">Xoa</a>
+                        <a href="/sua/<%= e._id %>">Sua</a>
                     </td>
                 </tr>
+            <% }); %>
         </table>
     </body>
 </html>
